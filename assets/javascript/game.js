@@ -1,3 +1,5 @@
+var audio = new Audio("assets/audio/crystalCollector.mp3")
+var crystalClick = new Audio("assets/audio/crystal.mp3")
 var wins = ''
 var losses = ''
 var totalScore = 0
@@ -24,28 +26,28 @@ function setUp(){
 
 //  Values
 $("#crystal-1").on("click", function(){
-  console.log(crystalValue1)
+  crystalClick.play()
   totalScore += crystalValue1;
   $("#totalScore").html(totalScore)
   checkWin();
 })
 
 $("#crystal-2").on("click", function(){
-  console.log(crystalValue2)
+  crystalClick.play()
   totalScore += crystalValue2;
   $("#totalScore").html(totalScore)
   checkWin();
 })
 
 $("#crystal-3").on("click", function(){
-  console.log(crystalValue3)
+  crystalClick.play()
   totalScore += crystalValue3;
   $("#totalScore").html(totalScore)
   checkWin();
 })
 
 $("#crystal-4").on("click", function(){
-  console.log(crystalValue4)
+  crystalClick.play()
   totalScore += crystalValue4;
   $("#totalScore").html(totalScore)
   checkWin();
@@ -99,5 +101,5 @@ $("#restartGame").on("click", function(){
 
 });
 
-
+audio.play();
 
