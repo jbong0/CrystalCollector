@@ -1,4 +1,9 @@
 
 body{
-    background-image: url('../images/glitz.jpg')
+    background-image: url('../images/glitz.jpg');
+    font-family: 'Berkshire Swash', cursive;
+}
+
+#music{
+	text-align: right;
 }

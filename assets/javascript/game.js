@@ -101,5 +101,33 @@ $("#restartGame").on("click", function(){
 
 });
 
+
 audio.play();
+
+
+$("#music").on("click", function(){
+if(audio.play()){
+$("#music").html("<p>Music Off 	&#x1f507;</p>");
+audio.pause();
+
+
+}
+
+// $("#music").on("click", function(){
+// if(audio.pause()){}
+// $("#music").html("<p>Music On &#x1f50a;</p");
+// audio.play();
+
+});
+
+
+
+// $("#music").on("click", function(){
+// 	$("#music").html("<p>Music On &#x1f50a;</p>");
+// audio.play();
+
+
+
+
+
 
