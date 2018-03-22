@@ -3,94 +3,101 @@ var losses = ''
 var totalScore = 0
 var crystals = ["assets/images/red.png", "assets/images/white.png", "assets/images/blueGreen.png","assets/images/purple.png"];
 
-$(document).ready(function() {
-
 
 //Random Number Generator 
 var randomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// Goal Number Value
 var goalNumber = randomNumber(19,120);
-$("#goalNumber").append(goalNumber);
-
-// Crystals Value
 var crystalValue1 = randomNumber(1,12);
 var crystalValue2 = randomNumber(1,12);
 var crystalValue3 = randomNumber(1,12);
 var crystalValue4 = randomNumber(1,12);
-
-// Crystals Image
-$("#crystal-1").append("<img src=' " + crystals[0] + "' />")
-$("#crystal-2").append("<img src=' " + crystals[1] + "' />")
-$("#crystal-3").append("<img src=' " + crystals[2] + "' />")
-$("#crystal-4").append("<img src=' " + crystals[3] + "' />")
+$("#goalNumber").html(goalNumber);
+$("#totalScore").html(totalScore);
 
 
-// Set Crystal Click Values
+$(document).ready(function() {
+
+function setUp(){
+
+//  Values
 $("#crystal-1").on("click", function(){
-  console.log(crystalValue1);
+  console.log(crystalValue1)
   totalScore += crystalValue1;
   $("#totalScore").html(totalScore)
   checkWin();
-});
+})
 
 $("#crystal-2").on("click", function(){
-  console.log(crystalValue2);
+  console.log(crystalValue2)
   totalScore += crystalValue2;
   $("#totalScore").html(totalScore)
   checkWin();
-});
+})
 
 $("#crystal-3").on("click", function(){
-  console.log(crystalValue3);
+  console.log(crystalValue3)
   totalScore += crystalValue3;
   $("#totalScore").html(totalScore)
   checkWin();
-});
+})
 
 $("#crystal-4").on("click", function(){
-  console.log(crystalValue4);
+  console.log(crystalValue4)
   totalScore += crystalValue4;
   $("#totalScore").html(totalScore)
   checkWin();
-});
+})
 
-var restartGame = function(){
-  window.location.reload()
-}
-
-var gameReset = function(){
-  goalNumber();
-  crystalValue1();
-  crystalValue2();
-  crystalValue3();
-  crystalValue4();
-  totalScore = 0
-}
-
-// Win Checker
-var checkWin = function (){
+// Winner Check
+function checkWin (){
   if (totalScore === goalNumber){
-    setTimeout(function(){ alert("Winner"); }, 1000);
+    setTimeout(function(){ alert("Winner"); }, 100);
     wins++;
-    $("#totalWins").html(wins);
-    gameReset()
-    
+    $("#totalWins").html("<h4>" + wins + "</h4>");
+    setTimeout(resetGame, 500);
     
   }else if(totalScore > goalNumber){
-    setTimeout(function(){ alert("Loser!"); }, 1000);
+    setTimeout(function(){ alert("Loser!"); }, 100);
     losses++;
-    $("#totalLosses").html("<h4>" + losses + "</h4>")
-    gameReset()
-    
+    $("#totalLosses").html("<h4>" + losses + "</h4>");
+    setTimeout(resetGame, 500);
   }
 }
 
-//Reset Game 
+
+// Crystals Image
+$("#crystal-1").html("<img src=' " + crystals[0] + "' />")
+$("#crystal-2").html("<img src=' " + crystals[1] + "' />")
+$("#crystal-3").html("<img src=' " + crystals[2] + "' />")
+$("#crystal-4").html("<img src=' " + crystals[3] + "' />")
+}
+
+
+setUp();
+
+function resetGame(){
+  totalScore = 0 ;
+  goalNumber = randomNumber(19,120);
+  crystalValue1 = randomNumber(1,12);
+  crystalValue2 = randomNumber(1,12);
+  crystalValue3 = randomNumber(1,12);
+  crystalValue4 = randomNumber(1,12);
+  $("#goalNumber").html(goalNumber);
+  $("#totalScore").html(totalScore);
+ 
+}
+
+// Reset Button
+$("#restartGame").on("click", function(){
+  location.reload();
+ })
+ 
 
 
 });
+
 
 
