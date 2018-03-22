@@ -1,9 +1,16 @@
 
 body{
-    background-image: url('../images/glitz.jpg');
+    background-image: url('../images/purpGlitz.jpg');
     font-family: 'Berkshire Swash', cursive;
 }
 
-#music{
-	text-align: right;
+.container{
+    background-image: url('../images/glitz.jpg');
+    border: 4px solid white;
 }
+
+#music{
+	float: right;
+	
+}
+
