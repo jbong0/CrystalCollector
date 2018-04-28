@@ -1,6 +1,6 @@
-# Hangman Game
+# Crystal Collector
 
-### Crystal Collector
+### Crystal Collector Game
 
 [Live Demo] https://jbong0.github.io/CrystalCollector/
 
